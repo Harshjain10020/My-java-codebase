@@ -19,6 +19,27 @@ public class LL {
         size+= 1;
     }
 
+    public int delEnd(){
+        if(size <=1){
+            delfirst();
+            size--;
+        }
+
+        Node secondLast = get(size-2);
+        int val = tail.value;
+        tail = secondLast;
+        tail.next = null;
+        return val;
+    }
+
+    public Node get(int index ){
+        Node node = head;
+        for(int i =0; i < index ; i++){
+            node = node.next;
+        }
+        return node;
+    }
+
     public void insertEndnode(int value){
         Node node = new Node(value);
         tail.next = node;
