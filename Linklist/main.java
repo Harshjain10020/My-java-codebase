@@ -1,0 +1,17 @@
+import java.util.*;
+import java.util.stream.Gatherer.Integrator;
+public class main {
+    public static void main(String[] args) {
+        LL list = new LL();
+        list.insertFirstnode(9);
+        list.insertFirstnode(7);
+        list.insertFirstnode(3);
+        list.insertFirstnode(3);
+        list.insertFirstnode(3);
+        list.insertEndnode(99);
+        list.insertAtk(300, 3);
+        System.out.println(list.delfirst());
+        list.Display();
+        
+    }
+}
