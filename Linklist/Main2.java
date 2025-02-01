@@ -15,17 +15,17 @@ public class Main2{
         // System.out.println(list.del_index(3));
         // list.Display();
 
-        DLL list = new DLL();
-        list.InsertFirst(9);
-        list.InsertFirst(2);
-        list.InsertFirst(3);
-        list.InsertFirst(3);
-        list.InsertFirst(7);
-        list.InsertFirst(4);
-        list.InsertFirst(92);
-        list.InsertFirst(91);
-        list.InsertLast(100);
-        list.InsertAfter(100, 45);
+        // DLL list = new DLL();
+        // list.InsertFirst(9);
+        // list.InsertFirst(2);
+        // list.InsertFirst(3);
+        // list.InsertFirst(3);
+        // list.InsertFirst(7);
+        // list.InsertFirst(4);
+        // list.InsertFirst(92);
+        // list.InsertFirst(91);
+        // list.InsertLast(100);
+        // list.InsertAfter(100, 45);
        
         // list.insertFirstnode(7);
         // list.insertFirstnode(3);
@@ -36,7 +36,14 @@ public class Main2{
         // System.out.println(list.delEnd());
         // System.out.println(list.delfirst());
         // System.out.println(list.del_index(3));
-        list.Display();
+        CLL list = new CLL();
+        list.insert(0);
+        list.insert(3);
+        list.insert(4);
+        list.insert(6);
+        list.insert(10 );
+        list.delete(4);
+        list.display();
         
     }
 }
