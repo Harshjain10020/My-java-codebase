@@ -69,6 +69,22 @@ public class LL {
         temp.next = node;
         size++;
     }
+
+    public int del_index(int k){
+        if(k ==0){
+            delfirst();
+        }
+        if(k == size-1){
+            delEnd();
+        }
+
+        Node prev = get(k-1);
+        int val = prev.next.value;
+        prev.next = prev.next.next;
+        return val; 
+
+    }
+
     public void Display(){
         Node temp = head;
         while (temp!= null) {
