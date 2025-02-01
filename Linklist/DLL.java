@@ -1,38 +1,98 @@
 public class DLL {
 
-    Node head;
-    private Node tail;
-    private int size;
+    private Node head;
 
-    public void insertFirst(int val) {
+    public void InsertFirst(int val) {
         Node node = new Node(val);
         node.next = head;
+
         node.prev = null;
         if (head != null) {
-            head.next = node;
+            head.prev = node;
+
+        }
+        head = node;
+    }
+
+    // find
+    public DLL.Node find(int value) {
+        DLL.Node node = head;
+        while (node != null) {
+            if (node.val == value) {
+                return node;
+            }
+            node = node.next;
+        }
+        return null;
+    }
+
+    // Insert at after node
+
+    public void InsertAfter(int after, int value) {
+        Node p = find(after);
+        if (p == null) {
+            System.out.println("does not exist");
+            return;
+        }
+
+        Node node = new Node(value);
+        node.next = p.next;
+        p.next = node;
+        node.prev = p;
+        if (node.next != null) {
+            node.next.prev = node;
         }
 
     }
-    public void Display(){
+
+    public void InsertLast(int val) {
+        Node node = new Node(val);
+        Node last = head;
+        node.next = null;
+        if (head == null) {
+            node.prev = null;
+            head = node;
+            return;
+        }
+        while (last.next != null) {
+            last = last.next;
+        }
+        last.next = node;
+        node.prev = last;
+    }
+
+    public void Display() {
         Node node = head;
-        while (node!= null) {
-            System.out.print(node.value+ "->");
+        Node last = null;
+        while (node != null) {
+            System.out.print(node.val + "->");
+
+            last = node;
             node = node.next;
+        }
+        System.out.println("end");
+        System.out.println("reverse :");
+
+        while (last != null) {
+            System.out.print(last.val + "->");
+            last = last.prev;
+
         }
         System.out.println();
     }
 
     private class Node {
-        int value;
+
+        int val;
         Node next;
         Node prev;
 
-        public Node(int value) {
-            this.value = value;
+        public Node(int val) {
+            this.val = val;
         }
 
-        public Node(int value, Node next) {
-            this.value = value;
+        public Node(int val, Node next, Node prev) {
+            this.val = val;
             this.next = next;
             this.prev = prev;
         }

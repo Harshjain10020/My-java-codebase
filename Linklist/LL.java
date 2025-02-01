@@ -7,7 +7,18 @@ public class LL {
         this.size = 0;
     }
 
-
+    //find
+    public LL.Node find(int value){
+        LL.Node node = head;
+        while (node!= null) {
+            if (node.value ==value) {
+                return node;
+            }
+            node = node.next;
+        }
+        return null;
+    }
+//insert first
     public void insertFirstnode(int value){
         Node node = new Node(value);
         node.next = head;
@@ -19,19 +30,8 @@ public class LL {
         size+= 1;
     }
 
-    public int delEnd(){
-        if(size <=1){
-            delfirst();
-            size--;
-        }
-
-        Node secondLast = get(size-2);
-        int val = tail.value;
-        tail = secondLast;
-        tail.next = null;
-        return val;
-    }
-
+   
+    //find or get that 
     public Node get(int index ){
         Node node = head;
         for(int i =0; i < index ; i++){
@@ -40,6 +40,8 @@ public class LL {
         return node;
     }
 
+
+    //insert at end
     public void insertEndnode(int value){
         Node node = new Node(value);
         tail.next = node;
@@ -52,7 +54,7 @@ public class LL {
         size+= 1;
     }
 
-
+//insert at K
     public void insertAtk(int value, int k ){
         if(k ==0){
             insertFirstnode(value);
@@ -70,6 +72,8 @@ public class LL {
         size++;
     }
 
+
+    // delete particular Index
     public int del_index(int k){
         if(k ==0){
             delfirst();
@@ -85,6 +89,34 @@ public class LL {
 
     }
 
+
+     //delete end one 
+     public int delEnd(){
+        if(size <=1){
+            delfirst();
+            size--;
+        }
+
+        Node secondLast = get(size-2);
+        int val = tail.value;
+        tail = secondLast;
+        tail.next = null;
+        return val;
+    }
+
+    //delete first 
+    public int delfirst(){
+        int val = head.value;
+        head = head.next;
+        if(head == null){
+            tail = null;
+        }
+        size--;
+        return val;
+    }
+
+
+    //display or print
     public void Display(){
         Node temp = head;
         while (temp!= null) {
@@ -94,16 +126,6 @@ public class LL {
         }
         System.out.println("END");
 
-    }
-
-    public int delfirst(){
-        int val = head.value;
-        head = head.next;
-        if(head == null){
-            tail = null;
-        }
-        size--;
-        return val;
     }
     private class Node{
         private int value;
