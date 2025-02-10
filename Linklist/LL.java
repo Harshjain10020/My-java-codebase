@@ -19,6 +19,20 @@ public class LL {
         return null;
     }
 //insert first
+
+public void insertNodeRec(int val, int index){
+    head = insertRec( val, index, head);
+}
+
+private Node insertRec(int val, int index, Node node){
+    if(index == 0){
+        Node temp = new Node(val,node);
+        size++;
+        return temp;
+    }
+    node.next = insertRec(val, index--, node.next);
+    return node;
+}
     public void insertFirstnode(int value){
         Node node = new Node(value);
         node.next = head;
@@ -126,6 +140,12 @@ public class LL {
         }
         System.out.println("END");
 
+    }
+
+    //insert using recursion 
+    
+    public void Insertusingrecursion(int val , int index){
+        
     }
     private class Node{
         private int value;
